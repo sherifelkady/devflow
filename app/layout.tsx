@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localeFont from "next/font/local";
 import "./globals.css";
+import ThemeProvider from "@/context/Theme";
 
 const inter = localeFont({
   src: "./fonts/Inter.ttf",
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
