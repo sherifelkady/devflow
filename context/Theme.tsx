@@ -6,5 +6,5 @@ export default function ThemeProvider({
   children,
   ...props
 }: ThemeProviderProps) {
-  return <NextThemeProvider {...props}>Theme</NextThemeProvider>;
+  return <NextThemeProvider {...props}>{children}</NextThemeProvider>;
 }
