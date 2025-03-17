@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localeFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/context/Theme";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = localeFont({
   src: "./fonts/Inter.ttf",
@@ -34,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>

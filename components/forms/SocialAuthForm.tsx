@@ -1,22 +1,31 @@
+"use client";
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { useSonner } from "sonner";
+import { toast } from "sonner";
 
 export default function SocialAuthForm() {
   const buttonClass =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
   // ======================================== Handlers ========================================
   const handleSignIn = async (provider: "github" | "google") => {
-    //   try{}
-    //   catch(error){
-    //     console.log(error);
-    // }
+    try {
+      throw new Error("Sign in not implemented");
+    } catch (error) {
+      console.log(error);
+      toast.error("Event has been created", {
+        description: "Sunday, December 03, 2023 at 9:00 AM",
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      });
+    }
   };
   // ======================================== End Handlers ========================================
   return (
     <div className="mt-10 flex flex-wrap gap-2.5">
-      <Button className={buttonClass}>
+      <Button className={buttonClass} onClick={() => handleSignIn("github")}>
         <Image
           src="/icons/github.svg"
           alt="Github Logo"
@@ -26,7 +35,7 @@ export default function SocialAuthForm() {
         />
         <span>Log in with GitHub</span>
       </Button>
-      <Button className={buttonClass}>
+      <Button className={buttonClass} onClick={() => handleSignIn("google")}>
         <Image
           src="/icons/google.svg"
           alt="Google Logo"
