@@ -3,6 +3,8 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { toast } from "sonner";
+import { signIn } from "next-auth/react";
+import ROUTES from "@/constants/routes";
 
 export default function SocialAuthForm() {
   const buttonClass =
@@ -10,7 +12,8 @@ export default function SocialAuthForm() {
   // ======================================== Handlers ========================================
   const handleSignIn = async (provider: "github" | "google") => {
     try {
-      throw new Error("Sign in not implemented");
+      // throw new Error("Sign in not implemented");
+      await signIn(provider, { callbackUrl: ROUTES.HOME, redirect: false });
     } catch (error) {
       console.log(error);
       toast.error("Event has been created", {
