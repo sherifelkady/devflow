@@ -1,17 +1,19 @@
 "use client";
-import React from "react";
-import { SignUpSchema } from "@/lib/validations";
-import { AuthForm } from "@/components/forms/AuthForm";
 
-export default function SignUp() {
+import React from "react";
+
+import AuthForm from "@/components/forms/AuthForm";
+import { SignUpSchema } from "@/lib/validations";
+
+const SignUp = () => {
   return (
-    <>
-      <AuthForm
-        onSubmit={(data) => Promise.resolve({ success: true, data })}
-        formType="SIGN_UP"
-        schema={SignUpSchema}
-        defaultValues={{ email: "", password: "" }}
-      />
-    </>
+    <AuthForm
+      formType="SIGN_UP"
+      schema={SignUpSchema}
+      defaultValues={{ email: "", password: "", name: "", username: "" }}
+      onSubmit={(data) => Promise.resolve({ success: true, data })}
+    />
   );
-}
+};
+
+export default SignUp;
