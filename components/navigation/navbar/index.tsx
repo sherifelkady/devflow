@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
+import MobileNavigation from "./MobileNavigation";
 
 export default function Navbar() {
   return (
@@ -18,9 +19,10 @@ export default function Navbar() {
         </p>
       </Link>
       <p>Search ... </p>
-      <p>
+      <div className="flex items-center gap-5">
         <Theme />
-      </p>
+        <MobileNavigation />
+      </div>
     </nav>
   );
 }
